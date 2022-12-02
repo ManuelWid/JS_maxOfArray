@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(24, 24, 24);
+            color: white;
+        }
+        .green {
+            color: green;
+            font-weight: bolder;
+        }
+        .red {
+            color: darkred;
+            font-weight: bolder;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <pre>
+    <span class="red">Open dev console to see result</span>
+
+    <span class="green">// ranArr returns an array with (amount of numbers, between min and, max - both included)</span>
+    const arr = ranArr(100,-1000,1000);
+
+    <span class="green">// classic for loop</span>
+    function maxOfArr(arr) {
+        let max = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+            if(arr[i] > max){
+                max = arr[i];
+            }
+        }
+
+        return max;
+    }
+
+    <span class="green">// same only with for of loop</span>
+    function maxOfArr2(arr) {
+        let max = arr[0];
+
+        for (let i of arr) {
+            if(i > max){
+                max = i;
+            }
+        }
+
+        return max;
+    }
+
+    <span class="green">// returns both the highest number and the index of it</span>
+    function maxOfArr3(arr) {
+        let max = arr[0];
+        let index = 0;
+
+        for (let [i,val] of arr.entries()) {
+            if(val > max){
+                max = val;
+                index = i;
+            }
+        }
+
+        return [max, index];
+    }
+
+    console.log(maxOfArr(arr));
+    console.log(maxOfArr2(arr));
+    console.log(maxOfArr3(arr));
+
+    <span class="green">
+    // -------------------
+    // only other stuff
+    // -------------------
+    
+    // return a random number between min (included) and max (included)</span>
+    function ranNum(min, max){
+        let ran = Math.floor(Math.random() * (max - min + 1) + min);
+        return ran;
+    }
+
+    <span class="green">// amount is how many number you want in the array, min/max is for ranNum function</span>
+    function ranArr(amount, min, max){
+        const arr = [];
+
+        for(let i = 0; i < amount; i++){
+            arr.push(ranNum(min, max));
+        }
+
+        console.log(arr);
+        return arr;
+    }
+    </pre>
+    <script src="main.js"></script>
+</body>
+</html>

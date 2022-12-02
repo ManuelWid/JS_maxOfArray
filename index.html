@@ -19,6 +19,10 @@
             font-weight: bolder;
             font-size: 1.5rem;
         }
+        .yellow {
+            color: orange;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -69,9 +73,34 @@
         return [max, index];
     }
 
+    <span class="green">// foreach, returns both the highest number and the index of it and index of doubles if exist</span>
+    function maxOfArr4(arr) {
+        let max = arr[0];
+        let index = 0;
+        const doubles = [];
+
+        arr.forEach((val, i) => {
+            if(val > max){
+                max = val;
+                index = i;
+            }
+        });
+
+        arr.forEach((val, i) => {
+            if(val == max && i != index){
+                doubles.push(i);
+            }
+        });
+
+        return [max, index, doubles];
+    }
+
+    <span class="yellow">
     console.log(maxOfArr(arr));
     console.log(maxOfArr2(arr));
     console.log(maxOfArr3(arr));
+    console.log(maxOfArr4(arr));
+    </span>
 
     <span class="green">
     // -------------------

@@ -1,5 +1,5 @@
 // ranArr returns an array with (amount of numbers, between min and, max - both included)
-const arr = ranArr(100,-1000,1000);
+const arr = ranArr(100,0,10);
 
 // classic for loop
 function maxOfArr(arr) {
@@ -42,9 +42,32 @@ function maxOfArr3(arr) {
     return [max, index];
 }
 
+// foreach, returns both the highest number and the index of it and index of doubles if exist
+function maxOfArr4(arr) {
+    let max = arr[0];
+    let index = 0;
+    const doubles = [];
+
+    arr.forEach((val, i) => {
+        if(val > max){
+            max = val;
+            index = i;
+        }
+    });
+
+    arr.forEach((val, i) => {
+        if(val == max && i != index){
+            doubles.push(i);
+        }
+    });
+
+    return [max, index, doubles];
+}
+
 console.log(maxOfArr(arr));
 console.log(maxOfArr2(arr));
 console.log(maxOfArr3(arr));
+console.log(maxOfArr4(arr));
 
 
 // -------------------
